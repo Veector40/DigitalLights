@@ -18,15 +18,13 @@ public class Garage {
         for(int vehicleNum = 0; vehicleNum < garage.size(); vehicleNum++) {
             if(garage.get(vehicleNum) instanceof Car) {
                 Car vehicle =  (Car) garage.get(vehicleNum);
-                totalLitresPerKilometer += vehicle.engineVolume * 3;
+                totalLitresPerKilometer += vehicle.fuelConsumption();
             } else if(garage.get(vehicleNum) instanceof Lorry) {
                 Lorry vehicle =  (Lorry) garage.get(vehicleNum);
-                if (vehicle.checkIfOverloaded()) {
-                    throw new IllegalStateException("Lorry with registration plate " +
-                                                    vehicle.registrationPlate +
-                                                    " is overloaded");
+                if(vehicle.isOverloaded()){
+                       throw new IllegalStateException("Lorry with registration plate HH-3791KV is overloaded");
                 }
-                totalLitresPerKilometer += 10 + vehicle.currentLoad / 100;
+                totalLitresPerKilometer += vehicle.fuelConsumption();
             }
         }
         return totalLitresPerKilometer / garage.size();

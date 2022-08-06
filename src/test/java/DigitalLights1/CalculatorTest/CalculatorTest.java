@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import DigitalLights1.Calculator.Calculator;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestClassOrder;
 
 public class CalculatorTest {
     Calculator calculator = new Calculator();
